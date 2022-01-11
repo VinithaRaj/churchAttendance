@@ -190,8 +190,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 16),),
-                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 14),),
+                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
+                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 16),),
                   ),
                 ),
 
@@ -218,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: _width / 1.2,
                   height: _height /4,
                   alignment: Alignment.center,
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(20),
                   child:
                   ListView.builder(
                       itemCount: listOfFields.length,
