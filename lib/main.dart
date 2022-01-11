@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -190,8 +191,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
-                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 16),),
+                    title: Text(currentTitle+" Registration", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 20),),
+                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 18,color: Colors.black45,fontWeight: FontWeight.bold),),
                   ),
                 ),
 
@@ -210,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: _width/1.2,
                 alignment: Alignment.topLeft,
                 child: Container(
-                  child: Text("Name: (1 per person)", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold),),
+                  child: Text("Enter Name: (1 per person)", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold),),
                 ),
               ),
 
