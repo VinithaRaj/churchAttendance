@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
           final nextNameService = Map.from(value);
           final currentDateService = nextNameService['date'];
           final currentDateTitle = nextNameService['title'];
-          currentTitle = "Registration for "+currentDateTitle;
+          currentTitle = currentDateTitle;
           currentDate = nextNameService['time'] + ', ' + nextNameService['date'];
           setState((){
             currentChildname= currentDateService.substring(0,6)+currentDateTitle;
@@ -209,7 +210,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: _width/1.2,
                 alignment: Alignment.topLeft,
                 child: Container(
-                  child: Text("Enter your name here (1 per person)", style: GoogleFonts.cinzel(),),
+                  child: Text("Name: (1 per person)", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold),),
                 ),
               ),
 
@@ -217,6 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: _width / 1.2,
                   height: _height /4,
                   alignment: Alignment.center,
+                  padding: EdgeInsets.all(15),
                   child:
                   ListView.builder(
                       itemCount: listOfFields.length,
