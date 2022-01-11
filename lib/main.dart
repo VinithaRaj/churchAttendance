@@ -209,7 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: _width/1.2,
                 alignment: Alignment.topLeft,
                 child: Container(
-                  child: Text("Enter your name here (One entry per person)", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold),),
+                  child: Text("Enter your name here (1 per person)", style: GoogleFonts.cinzel(),),
                 ),
               ),
 
@@ -261,7 +261,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 childname = date.substring(0,6)+name;
                 totalLimit = "$limit";
                 displayText = "Registration for $name on $date at $time";
-                displayTitle = "Registration for $name";
+                displayTitle = "$name";
                 displayDate = "Date: $time, $date";
                 displayTime = "Date: $time";
                 limitCount = int.parse(limit);
