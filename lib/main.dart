@@ -273,8 +273,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
 
                                   Container(
-                                      width: _width / 1.2,
-                                      height: _height /4,
+                                      width: _width / 1.1,
+                                      height: _height /3,
                                       alignment: Alignment.center,
                                       padding: EdgeInsets.all(20),
                                       child:
@@ -299,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Container(
                                       margin: EdgeInsets.only(top: 15),
                                       width: _width / 1.2,
-                                      height: _height / 9,
+                                      //height: _height / 9,
                                       alignment: Alignment.center,
                                       child:
                                       ListTile(
