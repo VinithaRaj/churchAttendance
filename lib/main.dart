@@ -201,53 +201,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ]
     ) ,
-        Column(
+        /*Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(20),
-                //margin: EdgeInsets.only(top: 15),
-                width: _width/1.2,
-                alignment: Alignment.topLeft,
-                child: Container(
-                  child: Text("Enter Name: (1 per person)", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
-                ),
-              ),
-
-              Container(
-                  width: _width / 1.2,
-                  height: _height /4,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(20),
-                  child:
-                  ListView.builder(
-                      itemCount: listOfFields.length,
-                      itemBuilder: (context, index){
-                        return listOfFields[index];
-                      })),
-              Container(
-                  width: _width / 1.2,
-                  //height: _height / 9,
-                  alignment: Alignment.center,
-                  child:
-                  Container(
-                    alignment: Alignment.center,
-                    //title: Text(titlesList.length.toString()+ totalLimit),
-                    //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
-                    child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
-
-                  )),
-
-              Container(
-                  margin: EdgeInsets.only(top: 15),
-                  width: _width / 1.2,
-                  height: _height / 9,
-                  alignment: Alignment.center,
-                  child:
-                  ListTile(
-                    title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
-                  )),]),
+              ]),*/
         StreamBuilder(
             stream: ref2.child('details').limitToLast(1).onValue,
             builder: (context, snapshot) {
@@ -304,6 +262,49 @@ class _MyHomePageState extends State<MyHomePage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.all(20),
+                                    //margin: EdgeInsets.only(top: 15),
+                                    width: _width/1.2,
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      child: Text("Enter Name: (1 per person)", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                    ),
+                                  ),
+
+                                  Container(
+                                      width: _width / 1.2,
+                                      height: _height /4,
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.all(20),
+                                      child:
+                                      ListView.builder(
+                                          itemCount: listOfFields.length,
+                                          itemBuilder: (context, index){
+                                            return listOfFields[index];
+                                          })),
+                                  Container(
+                                      width: _width / 1.2,
+                                      //height: _height / 9,
+                                      alignment: Alignment.center,
+                                      child:
+                                      Container(
+                                        alignment: Alignment.center,
+                                        //title: Text(titlesList.length.toString()+ totalLimit),
+                                        //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
+                                        child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
+
+                                      )),
+
+                                  Container(
+                                      margin: EdgeInsets.only(top: 15),
+                                      width: _width / 1.2,
+                                      height: _height / 9,
+                                      alignment: Alignment.center,
+                                      child:
+                                      ListTile(
+                                        title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
+                                      )),
 
                                   Container(
                                       //margin: EdgeInsets.only(top: 15),
@@ -334,7 +335,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             return Container(
                               child: ListTile(
                                 //title: Text(titlesList.length.toString()+ totalLimit),
-                                title: Text("Slots full!", style: TextStyle(fontWeight: FontWeight.bold),),
+                                title: Text("Slots full!", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 30),),
                                 //subtitle: ElevatedButton(onPressed: currentCount>=0?_sendToDB:null, child: new Text("Submit"),),
                               ),
                             );
@@ -346,6 +347,49 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.all(20),
+                                  //margin: EdgeInsets.only(top: 15),
+                                  width: _width/1.2,
+                                  alignment: Alignment.topLeft,
+                                  child: Container(
+                                    child: Text("Enter Name: (1 per person)", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                  ),
+                                ),
+
+                                Container(
+                                    width: _width / 1.2,
+                                    height: _height /4,
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(20),
+                                    child:
+                                    ListView.builder(
+                                        itemCount: listOfFields.length,
+                                        itemBuilder: (context, index){
+                                          return listOfFields[index];
+                                        })),
+                                Container(
+                                    width: _width / 1.2,
+                                    //height: _height / 9,
+                                    alignment: Alignment.center,
+                                    child:
+                                    Container(
+                                      alignment: Alignment.center,
+                                      //title: Text(titlesList.length.toString()+ totalLimit),
+                                      //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
+                                      child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
+
+                                    )),
+
+                                Container(
+                                    margin: EdgeInsets.only(top: 15),
+                                    width: _width / 1.2,
+                                    height: _height / 9,
+                                    alignment: Alignment.center,
+                                    child:
+                                    ListTile(
+                                      title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
+                                    )),
                                 Container(
                                     margin: EdgeInsets.only(top: 15),
                                     width: _width / 1.2,
