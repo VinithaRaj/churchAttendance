@@ -563,7 +563,7 @@ class _MyHomePageState extends State<MyHomePage> {
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-                //centerTitle: true,
+                centerTitle: true,
 
                 title: Text("TMC SUBANG JAYA REGISTRATION",
                         //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
