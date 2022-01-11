@@ -189,8 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 25),),
-                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 22),),
+                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
+                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 16),),
                   ),
                 ),
 
@@ -558,7 +558,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return <Widget>[
           SliverAppBar(
             backgroundColor: Colors.black,
-            expandedHeight: 200.0,
+            expandedHeight: 150.0,
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -567,7 +567,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("TMC SUBANG JAYA REGISTRATION",
                         //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
                         style: GoogleFonts.cinzel(
-                          textStyle: TextStyle(color: Colors.white, letterSpacing: 3.0, fontWeight: FontWeight.bold, ),
+                          textStyle: TextStyle(color: Colors.white, letterSpacing: 3.0, fontWeight: FontWeight.bold, fontSize: 18),
                         )
                     ) ,
                 background: Image.asset('assets/worship2.jpg',
