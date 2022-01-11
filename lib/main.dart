@@ -191,8 +191,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle+" Registration", style: GoogleFonts.spartan(fontWeight: FontWeight.bold, fontSize: 22),),
-                    subtitle: Text(currentDate, style: GoogleFonts.spartan( fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),),
+                    title: Text(currentTitle+" Registration", style: GoogleFonts.spartan(fontWeight: FontWeight.bold, fontSize: 20),),
+                    subtitle: Text(currentDate, style: GoogleFonts.spartan( fontSize: 18,color: Colors.black45,fontWeight: FontWeight.bold),),
                   ),
                 ),
 
