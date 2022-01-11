@@ -189,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle+"test", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
+                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
                     subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 16),),
                   ),
                 ),
@@ -199,6 +199,51 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ]
     ) ,
+        Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(30),
+                margin: EdgeInsets.only(top: 15),
+                width: _width/1.2,
+                alignment: Alignment.topLeft,
+                child: Container(
+                  child: Text("Enter your name here (One entry per person)", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold),),
+                ),
+              ),
+
+              Container(
+                  width: _width / 1.2,
+                  height: _height /4,
+                  alignment: Alignment.center,
+                  child:
+                  ListView.builder(
+                      itemCount: listOfFields.length,
+                      itemBuilder: (context, index){
+                        return listOfFields[index];
+                      })),
+              Container(
+                  width: _width / 1.2,
+                  height: _height / 9,
+                  alignment: Alignment.center,
+                  child:
+                  Container(
+                    //title: Text(titlesList.length.toString()+ totalLimit),
+                    //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
+                    child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
+
+                  )),
+
+              Container(
+                  margin: EdgeInsets.only(top: 15),
+                  width: _width / 1.2,
+                  height: _height / 9,
+                  alignment: Alignment.center,
+                  child:
+                  ListTile(
+                    title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
+                  )),]),
         StreamBuilder(
             stream: ref2.child('details').limitToLast(1).onValue,
             builder: (context, snapshot) {
@@ -377,51 +422,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     }
     ),
-    Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: <Widget>[
-    Container(
-    padding: EdgeInsets.all(30),
-    margin: EdgeInsets.only(top: 15),
-    width: _width/1.2,
-    alignment: Alignment.topLeft,
-    child: Container(
-    child: Text("Enter your name here (One entry per person)", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold),),
-    ),
-    ),
 
-    Container(
-    width: _width / 1.2,
-    height: _height /4,
-    alignment: Alignment.center,
-    child:
-    ListView.builder(
-    itemCount: listOfFields.length,
-    itemBuilder: (context, index){
-    return listOfFields[index];
-    })),
-    Container(
-    width: _width / 1.2,
-    height: _height / 9,
-    alignment: Alignment.center,
-    child:
-    Container(
-    //title: Text(titlesList.length.toString()+ totalLimit),
-    //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
-    child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
-
-    )),
-
-        Container(
-            margin: EdgeInsets.only(top: 15),
-            width: _width / 1.2,
-            height: _height / 9,
-            alignment: Alignment.center,
-            child:
-            ListTile(
-              title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
-            )),])
       ],
     );
 
@@ -567,7 +568,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("TMC SUBANG JAYA REGISTRATION",
                         //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
                         style: GoogleFonts.cinzel(
-                          textStyle: TextStyle(color: Colors.white, letterSpacing: 3.0, fontWeight: FontWeight.bold, fontSize: 18),
+                          textStyle: TextStyle(color: Colors.white, letterSpacing: 3.0, fontWeight: FontWeight.bold, fontSize: 14),
                         )
                     ) ,
                 background: Image.asset('assets/worship2.jpg',
