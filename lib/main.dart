@@ -359,7 +359,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                 Container(
                                     width: _width / 1.2,
-                                    //height: _height /4,
+                                    height: _height /3,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.all(20),
                                     child:
