@@ -191,8 +191,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle+" Registration", style: GoogleFonts.cormorantGaramond(fontWeight: FontWeight.bold, fontSize: 20),),
-                    subtitle: Text(currentDate, style: GoogleFonts.cormorantGaramond( fontSize: 18,color: Colors.black45,fontWeight: FontWeight.bold),),
+                    title: Text(currentTitle+" Registration", style: GoogleFonts.spartan(fontWeight: FontWeight.bold, fontSize: 22),),
+                    subtitle: Text(currentDate, style: GoogleFonts.spartan( fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),),
                   ),
                 ),
 
@@ -211,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: _width/1.2,
                 alignment: Alignment.topLeft,
                 child: Container(
-                  child: Text("Enter Name: (1 per person)", style: GoogleFonts.cormorantGaramond(fontWeight: FontWeight.bold),),
+                  child: Text("Enter Name: (1 per person)", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
                 ),
               ),
 
