@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
     Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
 
 
@@ -229,6 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
                   child:
                   Container(
+                    alignment: Alignment.center,
                     //title: Text(titlesList.length.toString()+ totalLimit),
                     //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
                     child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
