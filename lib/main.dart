@@ -186,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   margin: EdgeInsets.only(top: 15),
                   width: _width / 1.2,
-                  height: _height / 9,
+                  //height: _height / 9,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
 
