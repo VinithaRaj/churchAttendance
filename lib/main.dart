@@ -189,8 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
-                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 16),),
+                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 16),),
+                    subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 14),),
                   ),
                 ),
 
@@ -204,8 +204,8 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.all(30),
-                margin: EdgeInsets.only(top: 15),
+                padding: EdgeInsets.all(20),
+                //margin: EdgeInsets.only(top: 15),
                 width: _width/1.2,
                 alignment: Alignment.topLeft,
                 child: Container(
@@ -225,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       })),
               Container(
                   width: _width / 1.2,
-                  height: _height / 9,
+                  //height: _height / 9,
                   alignment: Alignment.center,
                   child:
                   Container(
@@ -543,8 +543,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       //backgroundColor: Colors.black,
 
-
-      body: NestedScrollView(body:new SingleChildScrollView(
+      appBar: AppBar(title: Text("TMC SUBANG JAYA REGISTRATION",
+          //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
+          style: GoogleFonts.cinzel(
+            textStyle: TextStyle(color: Colors.white, letterSpacing: 3.0, fontWeight: FontWeight.bold, fontSize: 14),
+          )
+      )
+      , backgroundColor: Colors.black,),
+      //body: NestedScrollView(body:
+      body:new SingleChildScrollView(
           child: Container(
             child: new Form(
 
@@ -553,7 +560,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ),
           )
-      ), headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+      )
+        /*, headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
 
 
         return <Widget>[
@@ -574,7 +582,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 background: Image.asset('assets/worship2.jpg',
                     //'https://i.pinimg.com/originals/6f/d0/55/6fd055d41eccc348c5cca0b8da18d01b.png',
                     //'ims/sneklogo.png',
-                  //_getbanner().toString(),
+                  ////_getbanner().toString(),
                     fit: BoxFit.fitHeight
                 )
 
@@ -582,7 +590,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ];
-      },)
+      },)*/
 
         // This trailing comma makes auto-formatting nicer for build methods.
     );
