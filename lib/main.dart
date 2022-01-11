@@ -547,7 +547,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: Text("TMC SUBANG JAYA REGISTRATION",
           //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
           style: GoogleFonts.cinzel(
-            textStyle: TextStyle(color: Colors.white, letterSpacing: 3.0, fontWeight: FontWeight.bold, fontSize: 14),
+            textStyle: TextStyle(color: Colors.white, letterSpacing: 1.5, fontWeight: FontWeight.bold, fontSize: 12),
           )
       )
       , backgroundColor: Colors.black,),
