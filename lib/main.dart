@@ -189,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.center,
 
                   child: ListTile(
-                    title: Text(currentTitle, style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
+                    title: Text(currentTitle+"test", style: GoogleFonts.cinzel(fontWeight: FontWeight.bold, fontSize: 18),),
                     subtitle: Text(currentDate, style: GoogleFonts.cinzel( fontSize: 16),),
                   ),
                 ),
