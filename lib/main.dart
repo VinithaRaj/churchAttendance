@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:recase/recase.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 Future main() async{
@@ -159,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
           print("we have saved "+listOfNames.toString());
         },
         validator: (val){
-          if(titlesList2.toString().contains(val!)){
+          if(titlesList2.toString().contains(ReCase(val!).titleCase)){
             print(val!+"contains");
             return 'Name has been registered already';
           }

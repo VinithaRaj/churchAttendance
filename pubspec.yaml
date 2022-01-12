@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^1.1.1
   firebase_database: ^8.0.4
   google_fonts:
+  recase: ^4.0.0
+
 
 
 dev_dependencies:
