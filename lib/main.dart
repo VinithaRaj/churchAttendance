@@ -67,6 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var currentTitle;
   var currentDate;
   var currentChildname;
+  var collectResponses=true;
   String totalLimit = "Unspecified";
   int _counter = 0;
   GlobalKey<FormState> _key = new GlobalKey();
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
           final nextNameService = Map.from(value);
           final currentDateService = nextNameService['date'];
           final currentDateTitle = nextNameService['title'];
+          collectResponses = nextNameService['collect'];
           currentTitle = currentDateTitle;
           currentDate = nextNameService['time'] + ', ' + nextNameService['date'];
           setState((){
@@ -219,6 +221,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 final time = nextService['time'];
                 final limit = nextService['limit'] ;
                 final name = nextService['title'];
+                collectResponses = nextService['collect'];
+                print("i am collect "+collectResponses.toString());
                 childname = date.substring(0,6)+name;
                 totalLimit = "$limit";
                 displayText = "Registration for $name on $date at $time";
@@ -256,8 +260,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           });
                           print(titlesList);
                           currentCount = limitCount - titlesList.length;
-                          print(titlesList.length);
-                          if (currentCount>0){
+                          print("what dissss" + collectResponses.toString());
+                          if (currentCount>0 && collectResponses==true){
                             return Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -331,7 +335,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ]
                             ) ;
                           }
-                          else{
+                          else {
                             return Container(
                               child: ListTile(
                                 //title: Text(titlesList.length.toString()+ totalLimit),
@@ -340,6 +344,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             );
                           }
+
                         }
                         else{
                           print("no child");
@@ -594,7 +599,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: Text("TMC SUBANG JAYA REGISTRATION",
           //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
           style: GoogleFonts.cinzel(
-            textStyle: TextStyle(color: Colors.white, letterSpacing: 1.5, fontWeight: FontWeight.bold, fontSize: 12),
+            textStyle: TextStyle(color: Colors.white, letterSpacing: 1.0, wordSpacing: 2.0,fontWeight: FontWeight.bold, fontSize: 12),
           )
       )
       , backgroundColor: Colors.black,),
