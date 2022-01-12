@@ -118,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int fieldCount = 1;
   var names2;
   var counter = 0;
+  var listcounter = 0;
   bool countworks = false;
   var limitCount = 200;
   var currentCount=0;
@@ -261,7 +262,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           print(titlesList);
                           currentCount = limitCount - titlesList.length;
                           print("what dissss" + collectResponses.toString());
+
                           if (currentCount>0 && collectResponses==true){
+
                             return Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -485,32 +488,55 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
   _addMembers(){
-    _key.currentState?.save();
-    listOfNames = [];
-    setState((){
-      fieldCount++;
-      listOfFields.add(TextFormField(
-        decoration: new InputDecoration(hintText: 'Name',fillColor: Colors.white),
-        maxLength: 64,
-        onSaved: (val){
-          listOfNames.add(val!);
-          //listOfNames = val;
-          print(listOfNames);
-          print("we have saved "+listOfNames.toString());
-        },
-        validator: (val){
-          if(titlesList2.toString().contains(val!)){
-            print(val!+"contains");
-            return 'Name has been registered already';
-          }
-          return null;
-        },
-        //validator: validateName,
-      ));
-      print(listOfNames);
-      print('im the list of names');
+    if (listcounter>=4){
+      return showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text("Alert!"),
+          content: Text("Please submit this list first"),
 
-    });
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text("Okay!"),
+            ),
+          ],
+        ),
+
+      );
+    }
+    else {
+      _key.currentState?.save();
+      listOfNames = [];
+      setState(() {
+        fieldCount++;
+        listcounter++;
+        listOfFields.add(TextFormField(
+          decoration: new InputDecoration(
+              hintText: 'Name', fillColor: Colors.white),
+          maxLength: 64,
+          onSaved: (val) {
+            listOfNames.add(val!);
+            //listOfNames = val;
+            print(listOfNames);
+            print("we have saved " + listOfNames.toString());
+          },
+          validator: (val) {
+            if (titlesList2.toString().contains(val!)) {
+              print(val! + "contains");
+              return 'Name has been registered already';
+            }
+            return null;
+          },
+          //validator: validateName,
+        ));
+        print(listOfNames);
+        print('im the list of names');
+      });
+    }
+
   }
 
   _sendToDB2(){
@@ -529,6 +555,7 @@ class _MyHomePageState extends State<MyHomePage> {
         print(data);
       });
       setState(() {
+        listcounter=0;
         listOfFields=[
           TextFormField(
             decoration: new InputDecoration(hintText: 'Name',fillColor: Colors.white),
