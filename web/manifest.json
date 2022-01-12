@@ -1,11 +1,11 @@
 {
-    "name": "attendancechurch",
-    "short_name": "attendancechurch",
+    "name": "TMC Subang Jaya Attendance",
+    "short_name": "TMC Subang Jaya Attendance",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter application.",
+    "description": "Registration Link",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
