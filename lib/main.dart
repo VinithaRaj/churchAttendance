@@ -271,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  Container(
+                                  /*Container(
                                     padding: EdgeInsets.all(20),
                                     //margin: EdgeInsets.only(top: 15),
                                     width: _width/1.2,
@@ -279,13 +279,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: Container(
                                       child: Text("Enter Name: (1 per person)", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
                                     ),
-                                  ),
-
+                                  ),*/
                                   Container(
-                                      width: _width / 1.1,
+                                      padding: EdgeInsets.all(20),
+                                      margin: EdgeInsets.only(top: 15),
+                                      width: _width/1.2,
+                                      alignment: Alignment.topLeft,
+                                      child:
+                                  ListTile(
+                                      title: Text("Enter Name: ", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                    trailing:ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More"))
+                                      ),
+
+
+                                ),
+                                  Container(
+                                      width: _width / 1.3,
                                       height: _height /3,
                                       alignment: Alignment.center,
-                                      padding: EdgeInsets.all(20),
+                                      padding: EdgeInsets.only(left: 10,right: 10),
                                       child:
                                       ListView.builder(
                                           itemCount: listOfFields.length,
@@ -293,19 +305,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                             return listOfFields[index];
                                           })),
                                   Container(
-                                      width: _width / 1.2,
-                                      //height: _height / 9,
-                                      alignment: Alignment.center,
-                                      child:
-                                      Container(
-                                        alignment: Alignment.center,
+                                    width: _width / 1.3,
+                                    //height: _height /3,
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.only(left: 10,right: 10),
+                                    child:
+
+                                      ListTile(
+
                                         //title: Text(titlesList.length.toString()+ totalLimit),
                                         //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
-                                        child: ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
+                                        title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
 
-                                      )),
+                                      ),
 
-                                  Container(
+
+                                      //width: _width / 1.2,
+                                      //height: _height / 9,
+                                      //alignment: Alignment.center,
+                                      //child:
+                                      ),
+
+                                  /*Container(
                                       margin: EdgeInsets.only(top: 15),
                                       width: _width / 1.2,
                                       //height: _height / 9,
@@ -313,7 +334,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child:
                                       ListTile(
                                         title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
-                                      )),
+                                      )),*/
 
                                   Container(
                                       //margin: EdgeInsets.only(top: 15),
@@ -421,6 +442,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: Text("Slots Left", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
 
                                     )),
+                                SizedBox(height:0)
                               ]
                           ) ;
                         }
@@ -632,8 +654,10 @@ class _MyHomePageState extends State<MyHomePage> {
           )
       )
       , backgroundColor: Colors.black,),
+
       //body: NestedScrollView(body:
       body:new SingleChildScrollView(
+
           child: Container(
             child: new Form(
 
