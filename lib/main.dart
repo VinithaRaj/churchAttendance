@@ -282,8 +282,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),*/
                                   Container(
                                       padding: EdgeInsets.all(5),
-                                      margin: EdgeInsets.only(top: 15),
-                                      width: _width/1.2,
+                                      margin: EdgeInsets.only(top: 5),
+                                      width: _width,
                                       alignment: Alignment.topLeft,
                                       child:
                                   ListTile(
@@ -294,17 +294,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                                 ),
-                                  Container(
-                                      width: _width / 1.3,
-                                      height: _height /3,
+                                  /*Container(
+                                      width: _width / 1.2,
+                                      height: _height/3,
                                       alignment: Alignment.center,
                                       padding: EdgeInsets.only(left: 10,right: 10),
-                                      child:
-                                      ListView.builder(
-                                          itemCount: listOfFields.length,
-                                          itemBuilder: (context, index){
-                                            return listOfFields[index];
-                                          })),
+                                      child:*/
+                                  Column(
+
+                                      children:<Widget>[ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: listOfFields.length,
+                                      itemBuilder: (context, index){
+                                        return listOfFields[index];
+                                      }),]),
+
+                                  //),
                                   Container(
                                       width: _width / 1.3,
                                       //height: _height /3,
@@ -391,8 +397,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               children: <Widget>[
                                 Container(
                                   padding: EdgeInsets.all(5),
-                                  margin: EdgeInsets.only(top: 15),
-                                  width: _width/1.2,
+                                  margin: EdgeInsets.only(top: 5),
+                                  width: _width,
                                   alignment: Alignment.topLeft,
                                   child:
                                   ListTile(
@@ -404,17 +410,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                 ),
 
-                                Container(
-                                    width: _width / 1.3,
-                                    height: _height /3,
-                                    alignment: Alignment.center,
-                                    padding: EdgeInsets.all(20),
-                                    child:
-                                    ListView.builder(
+                                Column(
+
+                                    children:<Widget>[ListView.builder(
+                                        physics: NeverScrollableScrollPhysics(),
+                                        shrinkWrap: true,
                                         itemCount: listOfFields.length,
                                         itemBuilder: (context, index){
                                           return listOfFields[index];
-                                        })),
+                                        }),]),
                                 Container(
                                     width: _width / 1.3,
                                     //height: _height /3,
