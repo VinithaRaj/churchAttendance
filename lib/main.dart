@@ -189,8 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
 
                 Container(
-                  margin: EdgeInsets.only(top: 15),
-                  width: _width / 1.2,
+                  margin: EdgeInsets.only(top: 10),
+                  //width: _width / 1.2,
                   //height: _height / 9,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
@@ -303,6 +303,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Column(
 
                                       children:<Widget>[ListView.builder(
+                      padding:EdgeInsets.only(left: 10,right: 10),
                                       physics: NeverScrollableScrollPhysics(),
                                       shrinkWrap: true,
                                       itemCount: listOfFields.length,
@@ -414,6 +415,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                     children:<Widget>[ListView.builder(
                                         physics: NeverScrollableScrollPhysics(),
+                                        padding:EdgeInsets.only(left: 10,right: 10),
                                         shrinkWrap: true,
                                         itemCount: listOfFields.length,
                                         itemBuilder: (context, index){
