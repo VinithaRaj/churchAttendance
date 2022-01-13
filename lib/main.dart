@@ -281,14 +281,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),*/
                                   Container(
-                                      padding: EdgeInsets.all(20),
+                                      padding: EdgeInsets.all(5),
                                       margin: EdgeInsets.only(top: 15),
                                       width: _width/1.2,
                                       alignment: Alignment.topLeft,
                                       child:
                                   ListTile(
                                       title: Text("Enter Name: ", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
-                                    trailing:ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More"))
+                                    //subtitle:TextButton(onPressed: _resetForm,child:Text("Clear Form",style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),),
+                                    trailing:ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
                                       ),
 
 
@@ -304,6 +305,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                           itemBuilder: (context, index){
                                             return listOfFields[index];
                                           })),
+                                  Container(
+                                      width: _width / 1.3,
+                                      //height: _height /3,
+                                      alignment: Alignment.center,
+                                      //padding: EdgeInsets.only(left: 10,right: 10),
+                                      child:ListTile(
+                                    //title: Text("Enter Name: ", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                    trailing:TextButton(onPressed: _resetForm,child:Text("Clear Form",style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),),
+                                    //trailing:ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
+                                  )),
                                   Container(
                                     width: _width / 1.3,
                                     //height: _height /3,
@@ -379,17 +390,22 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Container(
-                                  padding: EdgeInsets.all(20),
-                                  //margin: EdgeInsets.only(top: 15),
+                                  padding: EdgeInsets.all(5),
+                                  margin: EdgeInsets.only(top: 15),
                                   width: _width/1.2,
                                   alignment: Alignment.topLeft,
-                                  child: Container(
-                                    child: Text("Enter Name: (1 per person)", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                  child:
+                                  ListTile(
+                                    title: Text("Enter Name: ", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                    //subtitle:TextButton(onPressed: _resetForm,child:Text("Clear Form",style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),),
+                                    trailing:ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
                                   ),
+
+
                                 ),
 
                                 Container(
-                                    width: _width / 1.2,
+                                    width: _width / 1.3,
                                     height: _height /3,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.all(20),
@@ -400,6 +416,37 @@ class _MyHomePageState extends State<MyHomePage> {
                                           return listOfFields[index];
                                         })),
                                 Container(
+                                    width: _width / 1.3,
+                                    //height: _height /3,
+                                    alignment: Alignment.center,
+                                    //padding: EdgeInsets.only(left: 10,right: 10),
+                                    child:ListTile(
+                                      //title: Text("Enter Name: ", style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),
+                                      trailing:TextButton(onPressed: _resetForm,child:Text("Clear Form",style: GoogleFonts.spartan(fontWeight: FontWeight.bold),),),
+                                      //trailing:ElevatedButton(onPressed: _addMembers, child: const Text("+ Add 1 More")),
+                                    )),
+                                Container(
+                                  width: _width / 1.3,
+                                  //height: _height /3,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(left: 10,right: 10),
+                                  child:
+
+                                  ListTile(
+
+                                    //title: Text(titlesList.length.toString()+ totalLimit),
+                                    //child: ElevatedButton(onPressed: currentCount>=0?_addMembers(titlesList2):null, child: const Text("Add"),),
+                                    title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
+
+                                  ),
+
+
+                                  //width: _width / 1.2,
+                                  //height: _height / 9,
+                                  //alignment: Alignment.center,
+                                  //child:
+                                ),
+                                /*Container(
                                     width: _width / 1.2,
                                     //height: _height / 9,
                                     alignment: Alignment.center,
@@ -420,7 +467,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child:
                                     ListTile(
                                       title: ElevatedButton(onPressed: currentCount>=0?_sendToDB2:null, child: new Text("Submit"),),
-                                    )),
+                                    )),*/
                                 Container(
                                     margin: EdgeInsets.only(top: 15),
                                     width: _width / 1.2,
@@ -510,6 +557,36 @@ class _MyHomePageState extends State<MyHomePage> {
     else{
       return LinearProgressIndicator();
     }
+  }
+  _resetForm(){
+
+    setState(() {
+      listcounter=0;
+      listOfFields=[
+        TextFormField(
+          decoration: new InputDecoration(hintText: 'Name',fillColor: Colors.white),
+          maxLength: 64,
+          onSaved: (val){
+            listOfNames.add(val!);
+            //listOfNames = val;
+            print(listOfNames);
+            print("we have saved "+listOfNames.toString());
+          },
+          validator: (val){
+            if(titlesList2.toString().contains(val!)){
+              print(val!+"contains");
+              return 'Name has been registered already';
+            }
+            return null;
+          },
+          //validator: validateName,
+        )
+      ];
+    });
+    listOfNames=[];
+
+    _key.currentState?.reset();
+
   }
   _addMembers(){
     if (listcounter>=4){
