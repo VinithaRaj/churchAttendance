@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:recase/recase.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -151,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print(lencount);
     counter++;
     if (listOfFields.length==0){
+      print("field list empty");
       listOfFields.add(TextFormField(
         decoration: new InputDecoration(hintText: 'Name',fillColor: Colors.white),
         maxLength: 64,
@@ -165,6 +167,10 @@ class _MyHomePageState extends State<MyHomePage> {
             print(val!+"contains");
             return 'Name has been registered already';
           }
+          else if (val==null){
+            return 'Enter a valid name';
+          }
+
           return null;
         },
         //validator: validateName,
@@ -379,11 +385,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ]
                             ) ;
                           }
+                          else if (collectResponses ==false){
+                             const _url = 'whatsapp://send?phone=60103708806';
+                             void _launchURL(String func) async => await canLaunch(_url)
+                                 ? await launch('whatsapp://send?phone=60103708806') : throw 'Not found $_url';
+                             return Container(
+                              child: ListTile(
+                                //title: Text(titlesList.length.toString()+ totalLimit),
+                                title: Text("Registration is currently closed", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 18),),
+                                subtitle:Text("For more details contact Rev. Timothy Raj", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 16),),
+                                trailing: TextButton(onPressed: () {  }, child: Text("Contact Us"),),
+                                //subtitle: ElevatedButton(onPressed: currentCount>=0?_sendToDB:null, child: new Text("Submit"),),
+                              ),
+                            );
+                          }
                           else {
                             return Container(
                               child: ListTile(
                                 //title: Text(titlesList.length.toString()+ totalLimit),
-                                title: Text("Slots full!", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 30),),
+                                title: Text("Slots full!", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 18),),
                                 //subtitle: ElevatedButton(onPressed: currentCount>=0?_sendToDB:null, child: new Text("Submit"),),
                               ),
                             );
@@ -645,12 +665,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
   }
-
-  _sendToDB2(){
+  _confirmreg(){
     if (_key.currentState!.validate()){
-      var alertlist = listOfNames;
-      print("hello");
-      _key.currentState?.save();
+      print("i am in confirm reggg");
+      //_key.currentState?.save();
       final DatabaseReference ref = FirebaseDatabase.instance.reference();
       print(ref.toString());
       print('inside functionsssss');
@@ -678,6 +696,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 print(val!+"contains");
                 return 'Name has been registered already';
               }
+              else if (val==null){
+                return 'Enter a valid name';
+              }
               return null;
             },
             //validator: validateName,
@@ -686,10 +707,60 @@ class _MyHomePageState extends State<MyHomePage> {
       });
       _key.currentState?.reset();
       listOfNames=[];
+
+    }
+    else{
+      print("bye");
+    };
+  }
+  _sendToDB2(){
+    if (_key.currentState!.validate()){
+      var alertlist = listOfNames;
+      print(alertlist);
+      print("hello");
+      _key.currentState?.save();
+      /*final DatabaseReference ref = FirebaseDatabase.instance.reference();
+      print(ref.toString());
+      print('inside functionsssss');
+      listOfNames.forEach((element) {
+        var data = {
+          "name":element,
+        };
+        ref.child(currentChildname).push().set(data);
+        print(data);
+      });
+      setState(() {
+        listcounter=0;
+        listOfFields=[
+          TextFormField(
+            decoration: new InputDecoration(hintText: 'Name',fillColor: Colors.white),
+            maxLength: 64,
+            onSaved: (val){
+              listOfNames.add(val!);
+              //listOfNames = val;
+              print(listOfNames);
+              print("we have saved "+listOfNames.toString());
+            },
+            validator: (val){
+              if(titlesList2.toString().contains(val!)){
+                print(val!+"contains");
+                return 'Name has been registered already';
+              }
+              else if (val==null){
+                return 'Enter a valid name';
+              }
+              return null;
+            },
+            //validator: validateName,
+          )
+        ];
+      });
+      _key.currentState?.reset();
+      listOfNames=[];*/
       return showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text("Registration Confirmed for:"),
+          title: Text("Confirm registration for the following?"),
           content: //Text("You have raised a Alert Dialog Box"),
            Container(
           height: 300.0, // Change as per your requirement
@@ -708,8 +779,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(ctx).pop();
+                //_confirmreg;
               },
-              child: Text("Okay!"),
+              child: Text("No"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                //Navigator.of(ctx).pop();
+                _confirmreg();
+                Navigator.of(ctx).pop();
+              },
+              child: Text("Yes, Confirm!"),
             ),
           ],
         ),
