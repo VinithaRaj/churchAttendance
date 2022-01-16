@@ -386,15 +386,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             ) ;
                           }
                           else if (collectResponses ==false){
-                             const _url = 'whatsapp://send?phone=60103708806';
+                            // const _url = 'whatsapp://send?phone=60103708806';
+                            const _url = 'https://api.whatsapp.com/send/?phone=60103708806';
                              void _launchURL(String func) async => await canLaunch(_url)
-                                 ? await launch('whatsapp://send?phone=60103708806') : throw 'Not found $_url';
+                                 ? await launch(_url) : throw 'Not found $_url';
                              return Container(
                               child: ListTile(
                                 //title: Text(titlesList.length.toString()+ totalLimit),
                                 title: Text("Registration is currently closed", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 18),),
                                 subtitle:Text("For more details contact Rev. Timothy Raj", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 16),),
-                                trailing: TextButton(onPressed: () {  }, child: Text("Contact Us"),),
+                                trailing: TextButton(onPressed: () { _launchURL(_url); }, child: Text("Contact Us"),),
                                 //subtitle: ElevatedButton(onPressed: currentCount>=0?_sendToDB:null, child: new Text("Submit"),),
                               ),
                             );
