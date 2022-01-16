@@ -393,8 +393,8 @@ class _MyHomePageState extends State<MyHomePage> {
                              return Container(
                               child: ListTile(
                                 //title: Text(titlesList.length.toString()+ totalLimit),
-                                title: Text("Registration is currently closed", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 18),),
-                                subtitle:Text("For more details contact Rev. Timothy Raj", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 16),),
+                                title: Text("Registration is currently closed", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 16),),
+                                subtitle:Text("For more details contact Rev. Timothy Raj", style: GoogleFonts.spartan(fontWeight: FontWeight.bold,fontSize: 14),),
                                 trailing: TextButton(onPressed: () { _launchURL(_url); }, child: Text("Contact Us"),),
                                 //subtitle: ElevatedButton(onPressed: currentCount>=0?_sendToDB:null, child: new Text("Submit"),),
                               ),
@@ -814,7 +814,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: Text("TMC SUBANG JAYA REGISTRATION",
           //style: TextStyle(fontFamily: 'RoadRage',color: Colors.white, letterSpacing: 1.0, fontWeight: FontWeight.bold,height: .7)
           style: GoogleFonts.cinzel(
-            textStyle: TextStyle(color: Colors.white, letterSpacing: 1.0, wordSpacing: 2.0,fontWeight: FontWeight.bold, fontSize: 12),
+            textStyle: TextStyle(color: Colors.white, letterSpacing: 1.0, wordSpacing: 3.0,fontWeight: FontWeight.bold, fontSize: 12),
           )
       )
       , backgroundColor: Colors.black,),
